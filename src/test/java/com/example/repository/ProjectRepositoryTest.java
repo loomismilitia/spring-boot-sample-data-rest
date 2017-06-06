@@ -1,5 +1,6 @@
-package com.example.domain;
+package com.example.repository;
 
+import com.example.domain.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,19 +9,24 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Data JPA tests for entity {@link Project}.
+ * Tests for repository {@link ProjectRepository}.
  *
  * @author simon
  */
 @DataJpaTest
 @RunWith(SpringRunner.class)
-public class ProjectTest {
+public class ProjectRepositoryTest {
 
     @Autowired
     private TestEntityManager entityManager;
+
+    @Autowired
+    private ProjectRepository repository;
 
     private Customer customer;
 
@@ -44,13 +50,16 @@ public class ProjectTest {
     }
 
     @Test
-    public void saveShouldPersistData() throws Exception {
+    public void findByCustomerShouldReturnProject() throws Exception {
         Project project = new Project();
         project.setName("project name");
         project.setCustomer(this.customer);
 
-        final Project savedEntity = this.entityManager.persistFlushFind(project);
-        assertThat(savedEntity.getName()).isEqualTo("project name");
+        this.entityManager.persist(project);
+
+        List<Project> byCustomer = repository.findByCustomer(this.customer);
+        assertThat(byCustomer).hasSize(1);
+        assertThat(byCustomer.get(0).getName()).isEqualTo("project name");
     }
 
 }

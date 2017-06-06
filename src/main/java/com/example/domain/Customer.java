@@ -24,7 +24,7 @@ public class Customer {
     @JoinColumn(name = "languageCode", nullable = false)
     private Language language;
 
-    Customer() {
+    public Customer() {
         // jpa
     }
 }

@@ -20,7 +20,7 @@ public class Project {
     @JoinColumn(name = "customerId", nullable = false)
     private Customer customer;
 
-    Project() {
+    public Project() {
         //jpa
     }
 }
