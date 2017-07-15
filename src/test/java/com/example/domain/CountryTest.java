@@ -29,10 +29,7 @@ public class CountryTest {
     }
 
     public static Country createCountry(){
-        Country country = new Country();
-        country.setCountryCode("pt");
-        country.setName("Portugal");
-        return country;
+        return new Country("pt", "Portugal");
     }
 
 }

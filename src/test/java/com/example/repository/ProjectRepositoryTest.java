@@ -42,18 +42,13 @@ public class ProjectRepositoryTest {
         this.entityManager.persistFlushFind(country);
 
         // create customer
-        customer = new Customer();
-        customer.setCountry(country);
-        customer.setLanguage(language);
-        customer.setName("simon");
+        customer = new Customer("simon", country, language);
         this.entityManager.persistFlushFind(customer);
     }
 
     @Test
     public void findByCustomerShouldReturnProject() throws Exception {
-        Project project = new Project();
-        project.setName("project name");
-        project.setCustomer(this.customer);
+        Project project = new Project("project name", this.customer);
 
         this.entityManager.persist(project);
 

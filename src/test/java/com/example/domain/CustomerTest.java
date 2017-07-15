@@ -39,10 +39,7 @@ public class CustomerTest {
     @Test
     public void saveShouldPersistData() throws Exception {
         // create customer
-        Customer customer = new Customer();
-        customer.setName("simon");
-        customer.setCountry(this.country);
-        customer.setLanguage(this.language);
+        Customer customer = new Customer("simon", this.country, this.language);
 
         final Customer savedEntity = this.entityManager.persistFlushFind(customer);
 

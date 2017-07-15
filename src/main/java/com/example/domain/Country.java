@@ -21,8 +21,13 @@ public class Country {
     @NotNull
     private String name;
 
-    Country() {
+    Country(String countryCode, String name) {
+        this.countryCode = countryCode;
+        this.name = name;
+    }
 
+    Country() {
+        //jpa
     }
 
 }

@@ -20,7 +20,13 @@ public class Project {
     @JoinColumn(name = "customerId", nullable = false)
     private Customer customer;
 
-    public Project() {
+
+    public Project(String name, Customer customer) {
+        this.name = name;
+        this.customer = customer;
+    }
+
+    private Project() {
         //jpa
     }
 }

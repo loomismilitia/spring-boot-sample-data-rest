@@ -21,7 +21,12 @@ public class Language {
     @Column(name = "name", length = 45, nullable = false)
     private String name;
 
-    Language() {
+    Language(String languageCode, String name) {
+        this.languageCode = languageCode;
+        this.name = name;
+    }
+
+    private Language() {
         //jpa
     }
 

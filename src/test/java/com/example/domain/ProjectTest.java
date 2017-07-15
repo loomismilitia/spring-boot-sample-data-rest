@@ -36,18 +36,13 @@ public class ProjectTest {
         this.entityManager.persistFlushFind(country);
 
         // create customer
-        customer = new Customer();
-        customer.setCountry(country);
-        customer.setLanguage(language);
-        customer.setName("simon");
+        customer = new Customer("simon", country, language );
         this.entityManager.persistFlushFind(customer);
     }
 
     @Test
     public void saveShouldPersistData() throws Exception {
-        Project project = new Project();
-        project.setName("project name");
-        project.setCustomer(this.customer);
+        Project project = new Project("project name", this.customer);
 
         final Project savedEntity = this.entityManager.persistFlushFind(project);
         assertThat(savedEntity.getName()).isEqualTo("project name");

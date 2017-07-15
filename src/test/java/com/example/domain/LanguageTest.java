@@ -28,10 +28,7 @@ public class LanguageTest {
     }
 
     public static Language createLanguage(){
-        Language language = new Language();
-        language.setLanguageCode("pt");
-        language.setName("Portuguese");
-        return language;
+        return new Language("pt", "Portuguese");
     }
 
 }
