@@ -2,6 +2,7 @@ package com.example.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.util.Assert;
 
 import javax.persistence.*;
 
@@ -25,6 +26,9 @@ public class Customer {
     private Language language;
 
     public Customer(String name, Country country, Language language) {
+        Assert.notNull(name, "name must not be null");
+        Assert.notNull(country, "country must not be null");
+        Assert.notNull(language, "language must not be null");
         this.name = name;
         this.country = country;
         this.language = language;
