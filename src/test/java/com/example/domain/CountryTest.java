@@ -23,13 +23,9 @@ public class CountryTest {
 
     @Test
     public void saveShouldPersistData() throws Exception {
-        final Country savedEntity = this.entityManager.persistFlushFind(createCountry());
+        final Country savedEntity = this.entityManager.persistFlushFind(Fixtures.createCountry());
         assertThat(savedEntity.getCountryCode()).isEqualTo("pt");
         assertThat(savedEntity.getName()).isEqualTo("Portugal");
-    }
-
-    public static Country createCountry(){
-        return new Country("pt", "Portugal");
     }
 
 }

@@ -28,11 +28,11 @@ public class CustomerTest {
     public void setUp() throws Exception {
 
         // create language
-        language = LanguageTest.createLanguage();
+        language = Fixtures.createLanguage();
         this.entityManager.persistFlushFind(language);
 
         // create country
-        country =  CountryTest.createCountry();
+        country =  Fixtures.createCountry();
         this.entityManager.persistFlushFind(country);
     }
 

@@ -34,11 +34,11 @@ public class ProjectRepositoryTest {
     public void setUp() throws Exception {
 
         // create language
-        Language language = LanguageTest.createLanguage();
+        Language language = Fixtures.createLanguage();
         this.entityManager.persistFlushFind(language);
 
         // create country
-        Country country = CountryTest.createCountry();
+        Country country = Fixtures.createCountry();
         this.entityManager.persistFlushFind(country);
 
         // create customer

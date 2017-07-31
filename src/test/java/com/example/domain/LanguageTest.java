@@ -22,13 +22,9 @@ public class LanguageTest {
 
     @Test
     public void saveShouldPersistData() throws Exception {
-        final Language savedEntity = this.entityManager.persistFlushFind(createLanguage());
+        final Language savedEntity = this.entityManager.persistFlushFind(Fixtures.createLanguage());
         assertThat(savedEntity.getLanguageCode()).isEqualTo("pt");
         assertThat(savedEntity.getName()).isEqualTo("Portuguese");
-    }
-
-    public static Language createLanguage(){
-        return new Language("pt", "Portuguese");
     }
 
 }
