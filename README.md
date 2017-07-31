@@ -1,6 +1,6 @@
 # spring-boot-sample-data-rest 
 
-Spring Boot demo application Spring Data REST  
+Spring Boot demo application featuring Spring Data REST  
 
 ## Build & Run
 
@@ -11,10 +11,19 @@ To run the application simple use the following maven command:
 mvn spring-boot:run
 ```
 
+## Testing the application
+
+Go to the URL underneath to see the application available rest links.
+
+```shell
+localhost:8080 
+```
+
 ## Using H2’s web console
 
 The console will be auto-configured because the application contains the Spring Boot Developer Tools dependency in pom.xml.
 By default the console will be available at:
+
 ```shell
 /h2-console
  ```
